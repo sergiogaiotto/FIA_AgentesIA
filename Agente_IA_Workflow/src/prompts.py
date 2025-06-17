@@ -1,65 +1,67 @@
 
 class DeveloperToolsPrompts:
-    """Collection of prompts for analyzing developer tools and technologies"""
-
     # Tool extraction prompts
-    TOOL_EXTRACTION_SYSTEM = """You are a tech researcher. Extract specific tool, library, platform, or service names from articles.
-                            Focus on actual products/tools that developers can use, not general concepts or features."""
+    TOOL_EXTRACTION_SYSTEM = """Você é um pesquisador de preços, promoções, ofertas e valores. Extraia nomes específicos de ferramentas, bibliotecas, plataformas ou serviços de artigos.
+Concentre-se em produtos/ferramentas/soluções/serviços reais que consumidores demnonstrem interesse e podem usar."""
 
     @staticmethod
     def tool_extraction_user(query: str, content: str) -> str:
         return f"""Query: {query}
-                Article Content: {content}
+                Conteúdo do Artigo: {content}
 
-                Extract a list of specific tool/service names mentioned in this content that are relevant to "{query}".
+                Extraia uma lista de nomes de produtos/ferramentas/soluções/serviços específicos mencionados neste conteúdo que sejam relevantes para "{query}".
 
                 Rules:
-                - Only include actual product names, not generic terms
-                - Focus on tools developers can directly use/implement
-                - Include both open source and commercial options
-                - Limit to the 5 most relevant tools
-                - Return just the tool names, one per line, no descriptions
-
-                Example format:
-                Supabase
-                PlanetScale
-                Railway
-                Appwrite
-                Nhost"""
+                - Incluir apenas nomes de produtos reais, sem termos genéricos
+                - Foco em ferramentas/soluções/serviços que os consumidores podem comprar, obter, assinar, usar e consumir diretamente
+                - Incluir opções comerciais e de código aberto
+                - Limitar às 5 resultados mais relevantes
+                - Retornar apenas os nomes dos produtos/ferramentas/soluções/serviços, um por linha, sem descrições
+                Formato de exemplo:
+                Amazon
+                MercadoLivre
+                Picpay
+                Nubank
+                Microsoft
+                IBM
+                Carrefour
+                Ifood
+                OpenAI
+                Groq
+                """
 
     # Company/Tool analysis prompts
-    TOOL_ANALYSIS_SYSTEM = """You are analyzing developer tools and programming technologies. 
-                            Focus on extracting information relevant to programmers and software developers. 
-                            Pay special attention to programming languages, frameworks, APIs, SDKs, and development workflows."""
+    TOOL_ANALYSIS_SYSTEM = """Você está analisando preços, promoções, ofertas e valores de produtos/ferramentas/soluções/serviços com base na categoria informada pelo usuário.
+Concentre-se em extrair informações relevantes para consumidores de produtos/ferramentas/soluções/serviços.
+Preste atenção especial nas condições, descontos, modelo comercial, pré-requisitos, tecnologia, APIs, SDKs e modos de utilização para compra, obtenção, assinatura, uso e consumo."""
 
     @staticmethod
     def tool_analysis_user(company_name: str, content: str) -> str:
-        return f"""Company/Tool: {company_name}
-                Website Content: {content[:2500]}
+        return f"""Empresa/Ferramenta: {company_name}
+                Conteúdo do Website: {content[:2500]}
 
-                Analyze this content from a developer's perspective and provide:
-                - pricing_model: One of "Free", "Freemium", "Paid", "Enterprise", or "Unknown"
-                - is_open_source: true if open source, false if proprietary, null if unclear
-                - tech_stack: List of programming languages, frameworks, databases, APIs, or technologies supported/used
-                - description: Brief 1-sentence description focusing on what this tool does for developers
-                - api_available: true if REST API, GraphQL, SDK, or programmatic access is mentioned
-                - language_support: List of programming languages explicitly supported (e.g., Python, JavaScript, Go, etc.)
-                - integration_capabilities: List of tools/platforms it integrates with (e.g., GitHub, VS Code, Docker, AWS, etc.)
+                Analise este conteúdo da perspectiva de um consumidor e forneça:
+                - pricing_model: "Gratuito", "Freemium", "Pago", "Empresarial", "Assinatura" ou "Desconhecido"
+                - is_open_source: verdadeiro se for de código aberto, falso se for proprietário, nulo se não estiver claro
+                - tech_stack: tecnologia adotada para produtos/ferramentas/soluções/serviços oferecido
+                - description: breve descrição de uma frase com foco no que esta produtos/ferramentas/soluções/serviços entrega para o consumidor
+                - api_available: verdadeiro se API REST, GraphQL, SDK ou acesso programático forem mencionados
+                - language_support: Lista de linguagens de programação explicitamente suportadas (ex.: Python, JavaScript, Go, etc.)
+                - integration_capabilities: Lista de ferramentas/plataformas com as quais se integra (ex.: GitHub, VS Code, Docker, AWS, etc.)
+                Foco em recursos relevantes para o consumidor, como produtos/ferramentas/soluções/serviços, bem como modos de uso, integrações com APIs, SDKs, suporte a idiomas, integrações e modos de utlização para compra, obtenção, assinatura, uso e consumo."""
 
-                Focus on developer-relevant features like APIs, SDKs, language support, integrations, and development workflows."""
-
-    # Recommendation prompts
-    RECOMMENDATIONS_SYSTEM = """You are a senior software engineer providing quick, concise tech recommendations. 
-                            Keep responses brief and actionable - maximum 3-4 sentences total."""
+    RECOMMENDATIONS_SYSTEM = """Você é um pesquisador sênior que fornece recomendações técnicas rápidas e concisas.
+    Mantenha as respostas breves e práticas - no máximo 3 a 4 frases no total.."""
 
     @staticmethod
     def recommendations_user(query: str, company_data: str) -> str:
-        return f"""Developer Query: {query}
-                Tools/Technologies Analyzed: {company_data}
+        return f"""Consumer Query: {query}
+                Ferramentas/Tecnologias Analisadas: {company_data}
 
-                Provide a brief recommendation (3-4 sentences max) covering:
-                - Which tool is best and why
-                - Key cost/pricing consideration
-                - Main technical advantage
+                Forneça uma breve recomendação (máximo de 3 a 4 frases) abrangendo:
+                - Qual ferramenta é a melhor e por quê
+                - Principais considerações sobre custo/preço
+                - Principal vantagem técnica
+                - A melhor oferta, preços e condições
 
-                Be concise and direct - no long explanations needed."""
+                Não são necessárias longas explicações."""
