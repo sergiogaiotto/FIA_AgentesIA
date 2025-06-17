@@ -50,7 +50,7 @@ class Workflow:
                 for name in response.content.strip().split("\n")
                 if name.strip()
             ]
-            print(f"Extracted tools: {', '.join(tool_names[:5])}")
+            print(f"Produtos/ferramentas/soluções/serviços: {', '.join(tool_names[:5])}")
             return {"extracted_tools": tool_names}
         except Exception as e:
             print(e)

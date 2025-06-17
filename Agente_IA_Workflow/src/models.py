@@ -1,7 +1,6 @@
 from typing import List, Optional, Dict, Any
 from pydantic import BaseModel
 
-
 class CompanyAnalysis(BaseModel):
     pricing_model: str
     is_open_source: Optional[bool] = None
