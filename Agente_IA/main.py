@@ -34,7 +34,7 @@ async def main():
             messages = [
                 {
                     "role": "system",
-                    "content": "Você é um assistente que pode realizar scrape em sites, rastrear páginas e extrair dados usando ferramentas Firecrawl. Pense, passo a passo e use as ferramentas apropriadas para ajudar o usuário."
+                    "content": "Você é um assistente que pode realizar scraping em sites, rastrear páginas e extrair dados usando ferramentas Firecrawl. Pense, passo a passo e use as ferramentas apropriadas para ajudar o usuário."
                 }
             ]
 
