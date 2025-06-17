@@ -3,7 +3,6 @@ from src.workflow import Workflow
 
 load_dotenv()
 
-
 def main():
     workflow = Workflow()
     print("Agente de Pesquisa")
