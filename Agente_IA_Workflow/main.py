@@ -9,7 +9,7 @@ def main():
 
     while True:
         query = input("\n Consulta: ").strip()
-        if query.lower() in {"Fui!", "Sair"}:
+        if query.lower() in {"fui!", "sair"}:
             break
 
         if query:

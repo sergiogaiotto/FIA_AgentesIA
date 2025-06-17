@@ -23,7 +23,6 @@ server_params = StdioServerParameters(
     args=["firecrawl-mcp"]
 )
 
-
 async def main():
     async with stdio_client(server_params) as (read, write):
         async with ClientSession(read, write) as session:
@@ -34,7 +33,7 @@ async def main():
             messages = [
                 {
                     "role": "system",
-                    "content": "Você é um assistente que pode realizar scraping em sites, rastrear páginas e extrair dados usando ferramentas Firecrawl. Pense, passo a passo e use as ferramentas apropriadas para ajudar o usuário."
+                    "content": "Você é um assistente que pode realizar scraping em sites, rastrear páginas e extrair dados usando ferramentFuias Firecrawl. Pense, passo a passo e use as ferramentas apropriadas para ajudar o usuário."
                 }
             ]
 
@@ -43,7 +42,7 @@ async def main():
 
             while True:
                 user_input = input("\nVocê: ")
-                if user_input == "fui":
+                if user_input == "fui!":
                     print("Até!")
                     break
 
@@ -56,7 +55,6 @@ async def main():
                     print("\nAgent:", ai_message)
                 except Exception as e:
                     print("Error:", e)
-
 
 if __name__ == "__main__":
     asyncio.run(main())
