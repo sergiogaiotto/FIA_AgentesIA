@@ -73,7 +73,7 @@ class Workflow:
                 pricing_model="Unknown",
                 is_open_source=None,
                 tech_stack=[],
-                description="Failed",
+                description="Falhou",
                 api_available=None,
                 language_support=[],
                 integration_capabilities=[],
