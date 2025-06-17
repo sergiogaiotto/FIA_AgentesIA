@@ -34,17 +34,17 @@ def main():
 
                 if company.api_available is not None:
                     api_status = (
-                        "✅ Dispoível" if company.api_available else "❌ Not Available"
+                        "✅ Disponível" if company.api_available else "❌ Not Available"
                     )
                     print(f"   🔌 API: {api_status}")
 
                 if company.integration_capabilities:
                     print(
-                        f"   🔗 Integarções: {', '.join(company.integration_capabilities[:4])}"
+                        f"   🔗 Integrações: {', '.join(company.integration_capabilities[:4])}"
                     )
 
                 if company.description and company.description != "Analysis failed":
-                    print(f"   📝 Descriação: {company.description}")
+                    print(f"   📝 Descrição: {company.description}")
 
                 print()
 
