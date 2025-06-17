@@ -6,22 +6,22 @@ load_dotenv()
 
 def main():
     workflow = Workflow()
-    print("Developer Tools Research Agent")
+    print("Agente de Pesquisa")
 
     while True:
-        query = input("\n🔍 Developer Tools Query: ").strip()
-        if query.lower() in {"quit", "exit"}:
+        query = input("\n Consulta de ferramentas: ").strip()
+        if query.lower() in {"Fui!", "Sair"}:
             break
 
         if query:
             result = workflow.run(query)
-            print(f"\n📊 Results for: {query}")
+            print(f"\n Resultados para: {query}")
             print("=" * 60)
 
             for i, company in enumerate(result.companies, 1):
                 print(f"\n{i}. 🏢 {company.name}")
                 print(f"   🌐 Website: {company.website}")
-                print(f"   💰 Pricing: {company.pricing_model}")
+                print(f"   💰 Valores: {company.pricing_model}")
                 print(f"   📖 Open Source: {company.is_open_source}")
 
                 if company.tech_stack:
@@ -29,27 +29,27 @@ def main():
 
                 if company.language_support:
                     print(
-                        f"   💻 Language Support: {', '.join(company.language_support[:5])}"
+                        f"   💻 Suporte: {', '.join(company.language_support[:5])}"
                     )
 
                 if company.api_available is not None:
                     api_status = (
-                        "✅ Available" if company.api_available else "❌ Not Available"
+                        "✅ Dispoível" if company.api_available else "❌ Not Available"
                     )
                     print(f"   🔌 API: {api_status}")
 
                 if company.integration_capabilities:
                     print(
-                        f"   🔗 Integrations: {', '.join(company.integration_capabilities[:4])}"
+                        f"   🔗 Integarções: {', '.join(company.integration_capabilities[:4])}"
                     )
 
                 if company.description and company.description != "Analysis failed":
-                    print(f"   📝 Description: {company.description}")
+                    print(f"   📝 Descriação: {company.description}")
 
                 print()
 
             if result.analysis:
-                print("Developer Recommendations: ")
+                print("Recomendações: ")
                 print("-" * 40)
                 print(result.analysis)
 
