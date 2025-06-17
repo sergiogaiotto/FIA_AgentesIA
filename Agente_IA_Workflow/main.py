@@ -25,7 +25,7 @@ def main():
                 print(f"   📖 Open Source: {company.is_open_source}")
 
                 if company.tech_stack:
-                    print(f"   🛠️  Tech Stack: {', '.join(company.tech_stack[:5])}")
+                    print(f"   🛠️  Tecnologia: {', '.join(company.tech_stack[:5])}")
 
                 if company.language_support:
                     print(
