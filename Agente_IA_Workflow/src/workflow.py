@@ -28,7 +28,7 @@ class Workflow:
     def _extract_tools_step(self, state: ResearchState) -> Dict[str, Any]:
         print(f"🔍 Finding articles about: {state.query}")
 
-        article_query = f"{state.query} tools comparison best alternatives"
+        article_query = f"{state.query} comparação de melhores alternativas para produtos/ferramentas/soluções/serviços"
         search_results = self.firecrawl.search_companies(article_query, num_results=3)
 
         all_content = ""
@@ -84,7 +84,7 @@ class Workflow:
         extracted_tools = getattr(state, "extracted_tools", [])
 
         if not extracted_tools:
-            print("⚠️ No extracted tools found, falling back to direct search")
+            print("Nenhuma ferramenta extraída encontrada, retornando à pesquisa direta")
             search_results = self.firecrawl.search_companies(state.query, num_results=4)
             tool_names = [
                 result.get("metadata", {}).get("title", "Unknown")
@@ -93,11 +93,11 @@ class Workflow:
         else:
             tool_names = extracted_tools[:4]
 
-        print(f"🔬 Researching specific tools: {', '.join(tool_names)}")
+        print(f"Pesquisando produtos/ferramentas/soluções/serviços específicas: {', '.join(tool_names)}")
 
         companies = []
         for tool_name in tool_names:
-            tool_search_results = self.firecrawl.search_companies(tool_name + " official site", num_results=1)
+            tool_search_results = self.firecrawl.search_companies(tool_name + " site oficial", num_results=1)
 
             if tool_search_results:
                 result = tool_search_results.data[0]
@@ -129,7 +129,7 @@ class Workflow:
         return {"companies": companies}
 
     def _analyze_step(self, state: ResearchState) -> Dict[str, Any]:
-        print("Generating recommendations")
+        print("Gerando recomendações")
 
         company_data = ", ".join([
             company.json() for company in state.companies
