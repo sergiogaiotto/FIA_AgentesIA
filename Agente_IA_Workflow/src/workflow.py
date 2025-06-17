@@ -10,7 +10,7 @@ from .prompts import DeveloperToolsPrompts
 class Workflow:
     def __init__(self):
         self.firecrawl = FirecrawlService()
-        self.llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.1)
+        self.llm = ChatOpenAI(model="gpt-4.1-mini", temperature=0.1)
         self.prompts = DeveloperToolsPrompts()
         self.workflow = self._build_workflow()
 
@@ -26,7 +26,7 @@ class Workflow:
         return graph.compile()
 
     def _extract_tools_step(self, state: ResearchState) -> Dict[str, Any]:
-        print(f"🔍 Finding articles about: {state.query}")
+        print(f"🔍 Encontrar artigos sobre: {state.query}")
 
         article_query = f"{state.query} comparação de melhores alternativas para produtos/ferramentas/soluções/serviços"
         search_results = self.firecrawl.search_companies(article_query, num_results=3)
@@ -84,7 +84,7 @@ class Workflow:
         extracted_tools = getattr(state, "extracted_tools", [])
 
         if not extracted_tools:
-            print("Nenhuma ferramenta extraída encontrada, retornando à pesquisa direta")
+            print("Nenhuma produtos/ferramentas/soluções/serviços extraída encontrada, retornando à pesquisa direta")
             search_results = self.firecrawl.search_companies(state.query, num_results=4)
             tool_names = [
                 result.get("metadata", {}).get("title", "Unknown")

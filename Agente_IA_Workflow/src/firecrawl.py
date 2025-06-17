@@ -8,7 +8,7 @@ class FirecrawlService:
     def __init__(self):
         api_key = os.getenv("FIRECRAWL_API_KEY")
         if not api_key:
-            raise ValueError("Missing FIRECRAWL_API_KEY environment variable")
+            raise ValueError("Chave da variável de ambiente FIRECRAWL_API_KEY ausente")
         self.app = FirecrawlApp(api_key=api_key)
 
     def search_companies(self, query: str, num_results: int = 5):

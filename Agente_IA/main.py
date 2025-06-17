@@ -38,7 +38,7 @@ async def main():
                 }
             ]
 
-            print("Ferramentas disponíveis -", *[tool.name for tool in tools])
+            print("produtos/ferramentas/soluções/serviços disponíveis -", *[tool.name for tool in tools])
             print("-" * 60)
 
             while True:
