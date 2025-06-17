@@ -1,6 +1,6 @@
 # Agente_IA
 
-Agente_IA é um agente inteligente que utiliza LLMs (Modelos de Linguagem de Grande Escala) e integração com ferramentas externas via MCP (Multi-Chain Protocol) para realizar pesquisas, scraping e extração de dados de sites, fornecendo respostas rápidas e precisas para consultas sobre produtos, ferramentas, soluções e serviços.
+Agente_IA é um agente inteligente que utiliza LLMs (Modelos de Linguagem de Grande Escala) e integração com ferramentas externas via MCP (model context protocol) para realizar pesquisas, scraping e extração de dados de sites, fornecendo respostas rápidas e precisas para consultas sobre produtos, ferramentas, soluções e serviços.
 
 ## Funcionalidades
 
@@ -13,7 +13,7 @@ Agente_IA é um agente inteligente que utiliza LLMs (Modelos de Linguagem de Gra
 
 1. Clone este repositório:
     ```sh
-    git clone <url-do-repo>
+    git clone https://github.com/sergiogaiotto/FIA_AgentesIA
     cd Agente_IA
     ```
 
@@ -39,7 +39,6 @@ Execute o agente pelo terminal:
     ```sh
     - python main.py
 
-
 # Agente_IA_Workflow
 
 Agente_IA_Workflow é um agente de pesquisa automatizado que utiliza LLMs (Modelos de Linguagem), scraping inteligente e prompts otimizados para comparar produtos, ferramentas, soluções e serviços, fornecendo recomendações técnicas rápidas e concisas para consumidores e desenvolvedores.
@@ -55,7 +54,7 @@ Agente_IA_Workflow é um agente de pesquisa automatizado que utiliza LLMs (Model
 
 1. Clone este repositório:
     ```sh
-    git clone <url-do-repo>
+    git clone https://github.com/sergiogaiotto/FIA_AgentesIA
     cd Agente_IA_Workflow
 2. Crie um ambiente virtual (opcional, mas recomendado):
     ```sh
@@ -75,18 +74,21 @@ O agente irá buscar, analisar e recomendar as melhores opções disponíveis.
 
 Para sair, digite fui! ou sair.
 
-Estrutura do Projeto
-main.py: Ponto de entrada do agente de pesquisa.
-src/workflow.py: Lógica principal do fluxo de pesquisa e análise.
-src/firecrawl.py: Integração com a API Firecrawl para busca e scraping.
-src/models.py: Modelos de dados (Pydantic) para empresas, análises e estado da pesquisa.
-src/prompts.py: Prompts utilizados para extração e análise via LLM.
+## Estrutura do Projeto
+
+- main.py: Ponto de entrada do agente de pesquisa.
+- src/workflow.py: Lógica principal do fluxo de pesquisa e análise.
+- src/firecrawl.py: Integração com a API Firecrawl para busca e scraping.
+- src/models.py: Modelos de dados (Pydantic) para empresas, análises e estado da pesquisa.
+- src/prompts.py: Prompts utilizados para extração e análise via LLM.
+
 Requisitos
-Python 3.9+
-Chave de API do Firecrawl
-Chave de API do OpenAI
+- Python 3.9+
+- Chave de API do Firecrawl
+- Chave de API do OpenAI
+
 Licença
-MIT
+- MIT
 
 Desenvolvido por FIA.
 
