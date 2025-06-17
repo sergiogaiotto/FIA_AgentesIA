@@ -8,7 +8,7 @@ def main():
     print("Agente de Pesquisa")
 
     while True:
-        query = input("\n Consulta de ferramentas: ").strip()
+        query = input("\n Consulta: ").strip()
         if query.lower() in {"Fui!", "Sair"}:
             break
 
