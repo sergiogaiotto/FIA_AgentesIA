@@ -90,5 +90,4 @@ Requisitos
 Licença
 - MIT
 
-Desenvolvido por FIA.
-
+Desenvolvido por FIA.LabData - Prof Sergio Gaiotto.
