@@ -7,3 +7,6 @@ langchain-mcp-adapters
 python-dotenv
 fastapi
 agents
+Workflow
+uvicorn
+typing
