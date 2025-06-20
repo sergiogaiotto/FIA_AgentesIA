@@ -10,3 +10,4 @@ agents
 Workflow
 uvicorn
 typing
+tensorflow
