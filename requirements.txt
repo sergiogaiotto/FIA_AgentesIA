@@ -6,3 +6,4 @@ pydantic
 langchain-mcp-adapters
 python-dotenv
 fastapi
+agents
